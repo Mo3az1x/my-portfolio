@@ -60,8 +60,12 @@
     return img;
   }
 
-  function mediaFrame(src, alt, extraClass) {
+  function mediaFrame(src, alt, extraClass, options) {
     const figure = el("div", { class: "media-frame" + (extraClass ? " " + extraClass : "") });
+    const opts = options || {};
+    if (opts.imagePosition) {
+      figure.style.setProperty("--image-position", opts.imagePosition);
+    }
     if (!src) {
       figure.classList.add("is-placeholder");
       return figure;

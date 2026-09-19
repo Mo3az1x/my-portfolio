@@ -62,7 +62,11 @@
   const right = ui.el("div", { class: "panel" });
   right.appendChild(ui.el("h2", { text: "Tech" }));
   right.appendChild(ui.tags(project.tech));
-  right.appendChild(ui.mediaFrame(project.image, project.title, "project-cover"));
+  right.appendChild(
+    ui.mediaFrame(project.image, project.title, "project-cover", {
+      imagePosition: project.imagePosition || "center"
+    })
+  );
   cols.appendChild(left);
   cols.appendChild(right);
   root.appendChild(cols);
@@ -84,7 +88,9 @@
     const grid = ui.el("div", { class: "gallery" });
     gallery.forEach(function (item) {
       const fig = ui.el("figure", { class: "gallery-item" });
-      const frame = ui.mediaFrame(item.src, item.caption || project.title);
+      const frame = ui.mediaFrame(item.src, item.caption || project.title, null, {
+        imagePosition: item.imagePosition || project.imagePosition || "center"
+      });
       frame.addEventListener("click", function () {
         if (item.src) ui.openLightbox(item.src, item.caption);
       });

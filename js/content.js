@@ -96,7 +96,8 @@ window.PORTFOLIO = {
    * Projects
    * Fields:
    *   id, title, period, summary, description[], highlights[], tech[],
-   *   image (card cover), gallery[{src, caption}], github, demo, page
+   *   image (card cover), imagePosition (optional, default "center", valid CSS object-position),
+   *   gallery[{src, caption, imagePosition (optional)}], github, demo, page
    */
   projects: [
     {

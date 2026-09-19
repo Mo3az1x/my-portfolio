@@ -132,7 +132,9 @@
     projects.innerHTML = "";
     data.projects.forEach(function (project) {
       const card = ui.el("article", { class: "project-card" });
-      const media = ui.mediaFrame(project.image, project.title, "project-cover");
+      const media = ui.mediaFrame(project.image, project.title, "project-cover", {
+        imagePosition: project.imagePosition || "center"
+      });
       media.addEventListener("click", function () {
         if (project.image) ui.openLightbox(project.image, project.title);
       });
